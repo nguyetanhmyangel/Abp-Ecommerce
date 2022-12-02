@@ -37,7 +37,7 @@ namespace BasicEcommerce.Admin;
     typeof(AbpCachingStackExchangeRedisModule),
     typeof(AbpDistributedLockingModule),
     typeof(AbpAspNetCoreMvcUiMultiTenancyModule),
-    typeof(BasicEcommerceApplicationModule),
+    typeof(BasicEcommerceAdminApplicationModule),
     typeof(BasicEcommerceEntityFrameworkCoreModule),
     typeof(AbpAspNetCoreSerilogModule),
     typeof(AbpSwashbuckleModule)
@@ -82,9 +82,9 @@ public class BasicEcommerceAdminHttpApiHostModule : AbpModule
                 options.FileSets.ReplaceEmbeddedByPhysical<BasicEcommerceApplicationContractsModule>(
                     Path.Combine(hostingEnvironment.ContentRootPath,
                         $"..{Path.DirectorySeparatorChar}BasicEcommerce.Application.Contracts"));
-                options.FileSets.ReplaceEmbeddedByPhysical<BasicEcommerceApplicationModule>(
+                options.FileSets.ReplaceEmbeddedByPhysical<BasicEcommerceAdminApplicationModule>(
                     Path.Combine(hostingEnvironment.ContentRootPath,
-                        $"..{Path.DirectorySeparatorChar}BasicEcommerce.Application"));
+                        $"..{Path.DirectorySeparatorChar}BasicEcommerce.Admin.Application"));
             });
         }
     }
@@ -93,7 +93,7 @@ public class BasicEcommerceAdminHttpApiHostModule : AbpModule
     {
         Configure<AbpAspNetCoreMvcOptions>(options =>
         {
-            options.ConventionalControllers.Create(typeof(BasicEcommerceApplicationModule).Assembly);
+            options.ConventionalControllers.Create(typeof(BasicEcommerceAdminApplicationModule).Assembly);
         });
     }
 

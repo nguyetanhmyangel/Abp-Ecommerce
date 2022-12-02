@@ -4,7 +4,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>BasicEcommerce</RootNamespace>
+    <RootNamespace>BasicEcommerce.Admin</RootNamespace>
     <PreserveCompilationReferences>true</PreserveCompilationReferences>
     <UserSecretsId>BasicEcommerce-4681b4fd-151f-4221-84a4-929d86723e4c</UserSecretsId>
   </PropertyGroup>
@@ -24,9 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BasicEcommerce.Application\BasicEcommerce.Application.csproj" />
+    <ProjectReference Include="..\BasicEcommerce.Admin.Application\BasicEcommerce.Admin.Application.csproj" />
     <ProjectReference Include="..\BasicEcommerce.EntityFrameworkCore\BasicEcommerce.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="..\BasicEcommerce.HttpApi\BasicEcommerce.HttpApi.csproj" />
+    <ProjectReference Include="..\BasicEcommerce.Admin.HttpApi\BasicEcommerce.Admin.HttpApi.csproj" />
   </ItemGroup>
 
   <ItemGroup>

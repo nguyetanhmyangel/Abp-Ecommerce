@@ -81,7 +81,7 @@ public class BasicEcommerceAdminHttpApiHostModule : AbpModule
                         $"..{Path.DirectorySeparatorChar}BasicEcommerce.Domain"));
                 options.FileSets.ReplaceEmbeddedByPhysical<BasicEcommerceApplicationContractsModule>(
                     Path.Combine(hostingEnvironment.ContentRootPath,
-                        $"..{Path.DirectorySeparatorChar}BasicEcommerce.Application.Contracts"));
+                        $"..{Path.DirectorySeparatorChar}BasicEcommerce.Admin.Application.Contracts"));
                 options.FileSets.ReplaceEmbeddedByPhysical<BasicEcommerceAdminApplicationModule>(
                     Path.Combine(hostingEnvironment.ContentRootPath,
                         $"..{Path.DirectorySeparatorChar}BasicEcommerce.Admin.Application"));
@@ -104,7 +104,7 @@ public class BasicEcommerceAdminHttpApiHostModule : AbpModule
             {
                 options.Authority = configuration["AuthServer:Authority"];
                 options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
-                options.Audience = "BasicEcommerce";
+                options.Audience = "BasicEcommerce.Admin";
             });
     }
 
@@ -114,11 +114,11 @@ public class BasicEcommerceAdminHttpApiHostModule : AbpModule
             configuration["AuthServer:Authority"],
             new Dictionary<string, string>
             {
-                    {"BasicEcommerce", "BasicEcommerce API"}
+                    {"BasicEcommerce.Admin", "BasicEcommerce Admin API"}
             },
             options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "BasicEcommerce API", Version = "v1" });
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "BasicEcommerce Admin API", Version = "v1" });
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
             });
@@ -156,7 +156,7 @@ public class BasicEcommerceAdminHttpApiHostModule : AbpModule
         IConfiguration configuration,
         IWebHostEnvironment hostingEnvironment)
     {
-        var dataProtectionBuilder = context.Services.AddDataProtection().SetApplicationName("BasicEcommerce");
+        var dataProtectionBuilder = context.Services.AddDataProtection().SetApplicationName("BasicEcommerce.Admin");
         if (!hostingEnvironment.IsDevelopment())
         {
             var redis = ConnectionMultiplexer.Connect(configuration["Redis:Configuration"]);
@@ -225,7 +225,7 @@ public class BasicEcommerceAdminHttpApiHostModule : AbpModule
         app.UseSwagger();
         app.UseAbpSwaggerUI(options =>
         {
-            options.SwaggerEndpoint("/swagger/v1/swagger.json", "BasicEcommerce API");
+            options.SwaggerEndpoint("/swagger/v1/swagger.json", "BasicEcommerce Admin API");
 
             var configuration = context.GetConfiguration();
             options.OAuthClientId(configuration["AuthServer:SwaggerClientId"]);

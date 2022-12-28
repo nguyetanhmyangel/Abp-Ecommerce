@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using BasicEcommerce.Data;
+using BasicEcommerce.Seeding;
 using Serilog;
 using Volo.Abp;
 
@@ -35,6 +36,11 @@ public class DbMigratorHostedService : IHostedService
                 .ServiceProvider
                 .GetRequiredService<BasicEcommerceDbMigrationService>()
                 .MigrateAsync();
+            
+            await application
+                .ServiceProvider
+                .GetRequiredService<IdentityDataSeeder>()
+                .SeedAsync("nguyetanhmyangel@gmail.com.vn","Admin@123");
 
             await application.ShutdownAsync();
 

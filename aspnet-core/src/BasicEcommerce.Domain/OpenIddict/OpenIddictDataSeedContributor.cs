@@ -62,6 +62,19 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
                 }
             });
         }
+        
+        if (await _scopeManager.FindByNameAsync("BasicEcommerce.Admin") == null)
+        {
+            await _scopeManager.CreateAsync(new OpenIddictScopeDescriptor
+            {
+                Name = "BasicEcommerce.Admin",
+                DisplayName = "BasicEcommerce Admin API",
+                Resources =
+                {
+                    "BasicEcommerce.Admin"
+                }
+            });
+        }
     }
 
     private async Task CreateApplicationsAsync()
@@ -77,6 +90,33 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
         };
 
         var configurationSection = _configuration.GetSection("OpenIddict:Applications");
+        
+        //Admin Web Client
+        var webAdminClientId = configurationSection["BasicEcommerce_Admin:ClientId"];
+        if (!webAdminClientId.IsNullOrWhiteSpace())
+        {
+            var webAdminClientRootUrl = configurationSection["BasicEcommerce_Admin:RootUrl"].EnsureEndsWith('/');
+
+            /* BasicEcommerce_Web client is only needed if you created a tiered
+             * solution. Otherwise, you can delete this client. */
+            await CreateApplicationAsync(
+                name: webAdminClientId,
+                type: OpenIddictConstants.ClientTypes.Confidential,
+                consentType: OpenIddictConstants.ConsentTypes.Implicit,
+                displayName: "Admin Application",
+                secret: configurationSection["BasicEcommerce_Admin:ClientSecret"] ?? "1q2w3e*",
+                grantTypes: new List<string> //Hybrid flow
+                {
+                    OpenIddictConstants.GrantTypes.Password,
+                    OpenIddictConstants.GrantTypes.RefreshToken,
+                    OpenIddictConstants.GrantTypes.Implicit
+                },
+                scopes: commonScopes,
+                redirectUri: $"{webAdminClientRootUrl}signin-oidc",
+                clientUri: webAdminClientRootUrl,
+                postLogoutRedirectUri: $"{webAdminClientRootUrl}signout-callback-oidc"
+            );
+        }
 
         //Web Client
         var webClientId = configurationSection["BasicEcommerce_Web:ClientId"];

@@ -56,7 +56,7 @@ public class BasicEcommerceAuthServerModule : AbpModule
         {
             builder.AddValidation(options =>
             {
-                options.AddAudiences("BasicEcommerce");
+                options.AddAudiences("BasicEcommerce","BasicEcommerce.Admin");
                 options.UseLocalServer();
                 options.UseAspNetCore();
             });

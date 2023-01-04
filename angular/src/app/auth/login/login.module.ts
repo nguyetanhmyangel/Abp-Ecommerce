@@ -7,6 +7,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
+import { AuthService } from '@abp/ng.core';
 
 @NgModule({
     imports: [
@@ -19,6 +20,7 @@ import { InputTextModule } from 'primeng/inputtext';
         PasswordModule,
         ReactiveFormsModule
     ],
-    declarations: [LoginComponent]
+    declarations: [LoginComponent],
+    providers:[AuthService]
 })
 export class LoginModule { }

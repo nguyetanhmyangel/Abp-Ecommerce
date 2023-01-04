@@ -13,6 +13,7 @@ export const environment = {
     issuer: 'https://localhost:5000/',
     redirectUri: baseUrl,
     clientId: 'BasicEcommerce_Admin',
+    dummyClientSecret:'1q2w3e*',
     responseType: 'code',
     scope: 'offline_access BasicEcommerce.Admin',
     requireHttps: true,

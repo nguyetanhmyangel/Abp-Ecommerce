@@ -18,6 +18,7 @@
     "@abp/ng.identity": "~6.0.1",
     "@abp/ng.setting-management": "~6.0.1",
     "@abp/ng.tenant-management": "~6.0.1",
+    "@abp/ng.theme.basic": "^7.0.0",
     "@abp/ng.theme.lepton-x": "^1.0.0",
     "@abp/ng.theme.shared": "~6.0.1",
     "@angular/animations": "^14.2.1",
@@ -30,13 +31,13 @@
     "@angular/platform-browser-dynamic": "^14.2.1",
     "@angular/router": "^14.2.1",
     "bootstrap-icons": "~1.8.3",
-    "rxjs": "7.5.6",
-    "tslib": "^2.1.0",
-    "zone.js": "~0.11.4",
     "primeflex": "^3.2.0",
     "primeicons": "5.0.0",
     "primeng": "14.0.2",
-    "prismjs": "1.9.0"
+    "prismjs": "1.9.0",
+    "rxjs": "7.5.6",
+    "tslib": "^2.1.0",
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@abp/ng.schematics": "~6.0.1",

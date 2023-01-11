@@ -9,6 +9,13 @@
   dependencies:
     tslib "^2.0.0"
 
+"@abp/ng.account.core@~7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@abp/ng.account.core/-/ng.account.core-7.0.0.tgz#297f8b760cbc96dd3ba2820dfa2c2dd4a74430f3"
+  integrity sha512-Yo7HMbQc9/NxzbRHS+GEY42dSviTpfUs109ihH0Xy4SyJNbUa38QkK3ijd34L7YF0fXSf+6XV6C9ydWR+Y0RyQ==
+  dependencies:
+    tslib "^2.0.0"
+
 "@abp/ng.account@~6.0.1":
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/@abp/ng.account/-/ng.account-6.0.1.tgz#d840ffd0e6c4fef1bdb845e34ff13c26e97048b7"
@@ -35,6 +42,18 @@
     "@abp/utils" "~6.0.1"
     angular-oauth2-oidc "^13.0.1"
     just-clone "^3.2.1"
+    just-compare "^1.4.0"
+    ts-toolbelt "6.15.4"
+    tslib "^2.0.0"
+
+"@abp/ng.core@~7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@abp/ng.core/-/ng.core-7.0.0.tgz#cd7fbde1ab8f90444e4e691bf005223831a456d6"
+  integrity sha512-06AvNAImgDl2CbfITe0mkQpJn6AObxrc7q3hUnDhxJhkKvDmnvsi96js0MPVrHVhCmJueGIww715pdgq4qB7hQ==
+  dependencies:
+    "@abp/utils" "~7.0.0"
+    angular-oauth2-oidc "^15.0.1"
+    just-clone "^6.1.1"
     just-compare "^1.4.0"
     ts-toolbelt "6.15.4"
     tslib "^2.0.0"
@@ -95,6 +114,15 @@
     "@abp/ng.theme.shared" "~6.0.1"
     tslib "^2.0.0"
 
+"@abp/ng.theme.basic@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@abp/ng.theme.basic/-/ng.theme.basic-7.0.0.tgz#18831fd337b27e505645ca53932eb1c66739bc30"
+  integrity sha512-y6F09/Ml8wIMQ0uX/G121nbZqEUqN/VpJb/BxRuTwc23yrbW6FKtNxu0CTyVD+53aKGvHxIt2JoQqIyVu94MWA==
+  dependencies:
+    "@abp/ng.account.core" "~7.0.0"
+    "@abp/ng.theme.shared" "~7.0.0"
+    tslib "^2.0.0"
+
 "@abp/ng.theme.lepton-x@^1.0.0":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@abp/ng.theme.lepton-x/-/ng.theme.lepton-x-1.0.1.tgz#ab13cde17c96efc850c30bd2541da7587c8cf557"
@@ -119,10 +147,31 @@
     bootstrap "^5.2.0"
     tslib "^2.0.0"
 
+"@abp/ng.theme.shared@~7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@abp/ng.theme.shared/-/ng.theme.shared-7.0.0.tgz#1cbb10c5033e782a7783be0078db51a72d47651b"
+  integrity sha512-UFh8Uh/3tDoeR3S9AWg6505i+eM3LlFmbCRXqmZm5E5ugcBc1hAKo2GCquUKeojHGh81j7zJBs+s/dq+JYh6Cw==
+  dependencies:
+    "@abp/ng.core" "~7.0.0"
+    "@fortawesome/fontawesome-free" "^5.15.4"
+    "@ng-bootstrap/ng-bootstrap" "^14.0.0"
+    "@ngx-validate/core" "^0.2.0"
+    "@popperjs/core" "~2.11.2"
+    "@swimlane/ngx-datatable" "^20.0.0"
+    bootstrap "^5.2.0"
+    tslib "^2.0.0"
+
 "@abp/utils@~6.0.1":
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/@abp/utils/-/utils-6.0.1.tgz#bbb5354a329ba0a83b6268bca73575ff1d2109d7"
   integrity sha512-gXbf5jqMLSAFIJ0szmLgCbAob9SXBkbPM8zwIPfBXJczkEbSvvu2CvEyacKzcElBpbPqHGovBfIHpxIano34UQ==
+  dependencies:
+    just-compare "^1.3.0"
+
+"@abp/utils@~7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@abp/utils/-/utils-7.0.0.tgz#662645b8774b048ba5eb6f7971fa1f20b909ad96"
+  integrity sha512-JLufGsUmZ8jUdZNteXXp/phYqVCiOHO6ymMyd2oUjVEnRh3wRtRs4snhN2MQruGa6KCbPHkjGhXiQTUo75IbaQ==
   dependencies:
     just-compare "^1.3.0"
 
@@ -1670,6 +1719,13 @@
   dependencies:
     tslib "^2.3.0"
 
+"@ng-bootstrap/ng-bootstrap@^14.0.0":
+  version "14.0.0"
+  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-14.0.0.tgz#4faf56d5eeacc0e875506bcf6a5805e8fb9c38ce"
+  integrity sha512-QOYt1MBqAVVrjYSIf4gGXzRRJFzVKuD7ya2yFmeqN0YV2t3kB+IfUaNlfT3PTakHxLOS9ujLXeDiaTps5ST5TA==
+  dependencies:
+    tslib "^2.3.0"
+
 "@ngtools/webpack@14.2.10":
   version "14.2.10"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-14.2.10.tgz#d33ff1147d01bd1f5d936a3d1744c81a28e2ca6a"
@@ -1681,6 +1737,13 @@
   integrity sha512-I7Io8hjeG83z5QsVB8fluf4WkGnPsywv9TQmXsIKESyct5+RelAfBWncoUJ2Ayg6P/giVadVbz3JuVhc8X8gtA==
   dependencies:
     tslib "^1.9.0"
+
+"@ngx-validate/core@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@ngx-validate/core/-/core-0.2.0.tgz#5b3d9bb963c2fcb5cb6d745ca2f553d411082a3f"
+  integrity sha512-04iGHPCXyFCykAyCGehxetziOt69Lhk/6yWifhC/vc8PZJ0S8m3hIn6tI63pEdVoV95+Hc1GQ1K/wMRtRD0uLQ==
+  dependencies:
+    tslib "^2.0.0"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -2469,6 +2532,13 @@ angular-oauth2-oidc@^13.0.1:
   integrity sha512-aL1VIv9Jqoqq31lbpUXIeNpM3GeN/ldb3KOlq0cV92amGpZs9J4YA+2rlJ5V9zb6NFNbvd7XfTntMbnNuS0+CQ==
   dependencies:
     fast-sha256 "^1.3.0"
+    tslib "^2.0.0"
+
+angular-oauth2-oidc@^15.0.1:
+  version "15.0.1"
+  resolved "https://registry.yarnpkg.com/angular-oauth2-oidc/-/angular-oauth2-oidc-15.0.1.tgz#ba3bcb88e565be7ea4c635a48524963c677be2fe"
+  integrity sha512-5gpqO9QL+qFqMItYFHe8F6H5nOIEaowcNUc9iTDs3P1bfVYnoKoVAaijob53PuPTF4YwzdfwKWZi4Mq6P7GENQ==
+  dependencies:
     tslib "^2.0.0"
 
 ansi-colors@4.1.3, ansi-colors@^4.1.1:
@@ -4992,6 +5062,11 @@ just-clone@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/just-clone/-/just-clone-3.2.1.tgz#7396be5790d33f0fa7e8a145d7983b986a8cee39"
   integrity sha512-PFotEVrrzAnwuWTUOFquDShWrHnUnhxNrVs1VFqkNfnoH3Sn5XUlDOePYn2Vv5cN8xV2y69jf8qEoQHm7eoLnw==
+
+just-clone@^6.1.1:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/just-clone/-/just-clone-6.2.0.tgz#a4614d9bf7e4bbdcae7f9ba904aea5ea9cae8ae5"
+  integrity sha512-1IynUYEc/HAwxhi3WDpIpxJbZpMCvvrrmZVqvj9EhpvbH8lls7HhdhiByjL7DkAaWlLIzpC0Xc/VPvy/UxLNjA==
 
 just-compare@^1.3.0, just-compare@^1.4.0:
   version "1.5.1"

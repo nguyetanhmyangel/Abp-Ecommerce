@@ -6,6 +6,7 @@ import { PanelModule } from 'primeng/panel';
 import { TableModule } from 'primeng/table';
 import { PaginatorModule } from 'primeng/paginator';
 import {BlockUIModule} from 'primeng/blockui';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import { ButtonModule } from 'primeng/button';
 import {DropdownModule} from 'primeng/dropdown';
 import {InputTextModule} from 'primeng/inputtext';
@@ -15,7 +16,8 @@ import {InputTextModule} from 'primeng/inputtext';
   imports: [SharedModule, ProductRoutingModule, PanelModule, TableModule, PaginatorModule,BlockUIModule,
     ButtonModule,
     DropdownModule,
-    InputTextModule],
+    InputTextModule,
+    ProgressSpinnerModule],
 })
 export class ProductModule {
 

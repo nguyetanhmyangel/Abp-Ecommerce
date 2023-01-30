@@ -1,15 +1,18 @@
 import { PagedResultDto } from '@abp/ng.core';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ProductCategoriesService, ProductCategoryInListDto } from '@proxy/product-categories';
-import { ProductInListDto, ProductsService } from '@proxy/products';
+import { ProductDto, ProductInListDto, ProductsService } from '@proxy/products';
 import { Subject, takeUntil } from 'rxjs';
+import { DialogService } from 'primeng/dynamicdialog';
+import { NotificationService } from '../shared/services/notification.service';
+import { ProductDetailComponent } from './product-detail.component';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
 })
-export class ProductComponent implements OnInit, OnDestroy{
+export class ProductComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject<void>();
   blockedPanel: boolean = false;
   items: ProductInListDto[] = [];
@@ -24,7 +27,13 @@ export class ProductComponent implements OnInit, OnDestroy{
   keyword: string = '';
   categoryId: string = '';
 
-  constructor(private productService: ProductsService, private productCategoryService: ProductCategoriesService) {}
+  constructor(
+    private productService: ProductsService,
+    private productCategoryService: ProductCategoriesService,
+    private dialogService: DialogService,
+    private notificationService: NotificationService
+  ) { }
+
   ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
@@ -57,31 +66,43 @@ export class ProductComponent implements OnInit, OnDestroy{
       });
   }
 
-  loadProductCategories(){
-    this.productCategoryService.getListAll()
-    .subscribe((response: ProductCategoryInListDto[])=>{
-      response.forEach(element=>{
+  loadProductCategories() {
+    this.productCategoryService.getListAll().subscribe((response: ProductCategoryInListDto[]) => {
+      response.forEach(element => {
         this.productCategories.push({
           value: element.id,
-          name: element.name
-        })
+          name: element.name,
+        });
       });
     });
   }
 
   pageChanged(event: any): void {
-    this.skipCount = (event.page -1) * this.maxResultCount;
+    this.skipCount = (event.page - 1) * this.maxResultCount;
     this.maxResultCount = event.rows;
     this.loadData();
   }
+  showAddModal() {
+    const ref = this.dialogService.open(ProductDetailComponent, {
+      header: 'Add new product',
+      width: '70%',
+    });
 
-  private toggleBlockUI(enabled: boolean){
-    if(enabled == true){
+    ref.onClose.subscribe((data: ProductDto) => {
+      if (data) {
+        this.loadData();
+        this.notificationService.showSuccess("Add new is successful");
+      }
+    });
+  }
+
+  private toggleBlockUI(enabled: boolean) {
+    if (enabled == true) {
       this.blockedPanel = true;
-    }else{
-      setTimeout(()=>{
+    } else {
+      setTimeout(() => {
         this.blockedPanel = false;
-      },1000);
+      }, 1000);
     }
   }
 }

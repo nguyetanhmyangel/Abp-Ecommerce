@@ -2,19 +2,19 @@
   <!--Filter (search panel)-->
   <div class="grid">
     <div class="col-4">
-      <button pButton type="button" icon="fa fa-plus" iconPos="left" label="Thêm mới"></button>
+      <button pButton type="button" (click)="showAddModal()" icon="fa fa-plus" iconPos="left" label="Add new"></button>
     </div>
     <div class="col-8">
       <div class="formgroup-inline">
         <div class="field">
-          <label for="txt-keyword"  class="p-sr-only">Từ khóa</label>
-          <input id="txt-keyword" pInputText type="text" placeholder="Gõ từ khóa" />
+          <label for="txt-keyword"  class="p-sr-only">Keyword</label>
+          <input id="txt-keyword" pInputText type="text" placeholder="Input keyword" />
         </div>
         <div class="field">
           <p-dropdown
             [options]="productCategories"
             [(ngModel)]="categoryId"
-            placeholder="Chọn danh mục"
+            placeholder="Select one Category"
           ></p-dropdown>
         </div>
         <button
@@ -23,7 +23,7 @@
           (click)="loadData()"
           icon="fa fa-search"
           iconPos="left"
-          label="Tìm"
+          label="Search"
         ></button>
       </div>
     </div>
